@@ -1,0 +1,92 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Automatic
+    </ion-title>
+
+
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="mainpage">
+  <div class="fiversdiv startheader">
+    <ion-toolbar>
+      <ion-row *ngIf="!isGameStarted">
+        <ion-col>
+          <ion-button color="success" (click)="startGame()">Start</ion-button>
+        </ion-col>
+        <ion-col>
+
+          <ion-select placeholder="seconds" class="secondsSelect" [(ngModel)]="timerSeconds">
+            <ion-select-option *ngFor="let t of timerOptions" value={{t}}>{{t}}</ion-select-option>
+          </ion-select>
+
+        </ion-col>
+      </ion-row>
+      <ion-row *ngIf="isGameStarted">
+        <ion-col>
+          <ion-button color="danger" (click)="resetGame()">
+            <ion-icon name="refresh"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="warning" (click)="resetGame()">History</ion-button>
+
+        </ion-col>
+        <ion-col class="tambolanumber" *ngIf="pointer!=0">
+          <ion-button shape="round" color="success">{{sequence[pointer-1]}}</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button color="primary" *ngIf=" !isTimerPaused" (click)="switchGame('0')">
+            <ion-icon name="pause-circle"></ion-icon>
+          </ion-button>
+          <ion-button color="primary" *ngIf="isTimerPaused" (click)="switchGame('1')">
+            <ion-icon name="play-circle"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </div>
+  <div class="grid">
+    <ion-grid class="iongird">
+      <ion-row *ngFor="let horzBoard of board">
+        <ion-col class="gridcol" *ngFor="let cell of horzBoard">
+          <div color="primary" [ngClass]=" cell.status==true?'mark':'dont-mark' ">
+            {{cell.value}}
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <div *ngIf="isGameStarted">
+    <ion-card *ngIf="previousNumber!=null">
+      <ion-card-header>
+        <ion-card-subtitle class="prevrem">PREVIOUS NUMBER : {{previousNumber}}</ion-card-subtitle>
+        <ion-card-subtitle class="prevrem">REMAINING NUMBERS : {{90-pointer}} </ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </div>
+  <!-- <div class="fiversdiv">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="lgbtns" *ngFor="let cell of fivers">
+          <ion-button color="light" *ngIf="cell.status==false" (click)="cell.status=true">{{cell.name}}</ion-button>
+          <ion-button color="dark" *ngIf="cell.status==true" (click)="cell.status=false">{{cell.name}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div> -->
+</ion-content>
+<ion-footer class="fiversfooter" *ngIf="isGameStarted">
+  <div class="fiversdiv">
+    <ion-grid>
+      <ion-row>
+        <ion-col class="lgbtns" *ngFor="let cell of fivers">
+          <ion-button color="light" *ngIf="cell.status==false" (click)="cell.status=true">{{cell.name}}</ion-button>
+          <ion-button color="dark" *ngIf="cell.status==true" (click)="cell.status=false">{{cell.name}}</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-footer>

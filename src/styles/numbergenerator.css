@@ -1,0 +1,90 @@
+ion-content ion-toolbar {
+    --background: translucent;
+  }
+  .tambolanumber
+  {
+  
+   text-align: center; 
+  }
+  .grid
+  {
+    margin:10px;
+  }
+  .gridcol
+  {
+    border: 1px solid black;
+    text-align: center;
+  }
+  .mark
+  {
+    color: red;
+  }
+  .startheader
+  {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+    main{
+      background: antiquewhite;
+    }
+   .gridcol
+    {
+      font-family: fantasy;
+    }
+    .lgbtns
+    {
+      text-align: center;
+    }
+    .fiversdiv
+    {
+      margin-left: 10px;
+      margin-right: 10px;
+      background:#26549B 
+       /* #601E9E; */
+    }
+    .mainpage
+    {
+      overflow-y: hidden;
+    }
+    .iongird
+    {
+      background: antiquewhite;
+    }
+    .fiversfooter
+    {
+      position: unset;
+    }
+    .prevrem
+    {
+      color: black;
+    font-family: cursive;
+    }
+    .soundbtncol
+    {
+      text-align: left;
+    }
+    .historycontent
+    {
+      margin-top: 40px;
+    position: absolute;
+    width: 100%;
+    }
+    .historynum
+    {
+      text-align: left;
+      padding:4px;
+      border: 1px solid black;
+    }
+    .historyhead
+    {
+      padding: 5px;
+      text-align: center;
+      background: cadetblue;
+      margin: 10px;
+    }
+    .histdiv
+    {
+      margin: 10px;
+      overflow-y: scroll;
+    }

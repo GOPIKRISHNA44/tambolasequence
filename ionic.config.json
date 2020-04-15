@@ -1,0 +1,8 @@
+{
+  "name": "tambolapp",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
